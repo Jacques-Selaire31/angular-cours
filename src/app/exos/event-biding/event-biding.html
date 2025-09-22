@@ -1,0 +1,4 @@
+<textarea class="textarea" placeholder="Ajouter un ami" (keyup)="updatedField($event)"></textarea>
+<p>{{nameFriend}}</p>
+<span>{{hasFriend===false ? "Vous n'avez pas d'ami 😓" : "Vous avez des amis 😍" }}</span>
+<button class="btn btn-secondary" (click)="addFriend($event)" [disabled]="isDisabled">Ajouter un ami</button>
