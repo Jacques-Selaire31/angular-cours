@@ -1,8 +1,70 @@
-<section>
+<!-- VERSION AVEC NGMODEL-->
+<div id="bind">
+    <section>
+        <div>
+            <label for="text">Votre nom :</label>
+            <textarea class="textarea" placeholder="Entrez votre nom" [(ngModel)]="name"></textarea>
+        </div>
+        <div>
+            <label for="text">Votre bio :</label>
+            <textarea class="textarea" placeholder="Entrez votre bio" [(ngModel)]="bio"></textarea>
+        </div>
+        <div>
+            <label for="text">Votre image de profil :</label>
+            <textarea class="textarea" placeholder="Entrez une url pour votre photo de profil"
+                [(ngModel)]="img"></textarea>
+        </div>
+        <div>
+            <button class="btn btn-secondary" (click)="radomizeAge()">Générer un age</button>
+            <button class="btn btn-info" (click)="changeStatut()">Changer le statut</button>
+            <button class="btn btn-info" (click)="addFriend(img, name, statut, age, bio, reputation)">Ajouter un
+                ami</button>
+        </div>
+    </section>
+    <article id="card">
+        <div>
+            <h1>PREVIEW</h1>
+            <section id="card" [ngStyle]="{ backgroundColor: age > 25 ? 'rgb(60, 114, 87)' : 'rgb(114, 91, 60)' }">
+                <img [src]="getIMG()" alt="">
+                <h1> Nom : {{name}}</h1>
+                <span class="statut-mode">
+                    <div [ngClass]="statut === true ? 'offline' : 'online'"></div>Statut : {{statut ? "Offline" :
+                    "Online"}}
+                </span>
+                <p>Âge : {{age}}</p>
+                <p>Bio : {{bio}}</p>
+                <p>Réputation : {{age > 25 ? "RINGARD" : "PAS RINGARD"}}</p>
+            </section>
+        </div>
+        <section id="list-friend-card" *ngFor="let friend of listFriend">
+            <section 
+                [ngStyle]="{ backgroundColor: friend.age > 25 ? 'rgb(60, 114, 87)' : 'rgb(114, 91, 60)' }">
+                @if (friend.img){
+                <img [src]="friend.img" alt="">
+                } @else {
+                <img [src]="defaultImg" alt="">
+                }
+                <h1> Nom : {{ friend.name}}</h1>
+                <span class="statut-mode">
+                    <div [ngClass]="friend.statut === true ? 'offline' : 'online'"></div>Statut : {{friend.statut ?
+                    "Offline" :
+                    "Online"}}
+                </span>
+                <p>Âge : {{friend.age}}</p>
+                <p>Bio : {{friend.bio}}</p>
+                <p>Réputation : {{friend.age > 25 ? "RINGARD" : "PAS RINGARD"}}</p>
+            </section>
+        </section>
+    </article>
+</div>
+
+<!-- VERSION SANS NGMODEL-->
+
+<!-- <section>
     <img [src]="img" alt="Vive le Handicap">
     <h1>{{name}}</h1>
     <span>{{statut}}</span>
     <p>{{age}}</p>
     <p>{{bio}}</p>
     <p>Réputation : {{age > 25 ? "RINGARD" : "PAS RINGARD"}}</p>
-</section>
+</section> -->

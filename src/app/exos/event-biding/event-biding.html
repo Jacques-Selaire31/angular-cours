@@ -1,4 +1,35 @@
-<textarea class="textarea" placeholder="Ajouter un ami" (keyup)="updatedField($event)"></textarea>
+<!-- VERSION AVEC @if-->
+ <h1>Exericice Event Binding</h1>
+<div id="ami">
+    <textarea class="textarea" placeholder="Ajouter un ami" [(ngModel)]="nameFriend"></textarea>
+    <p>{{nameFriend}}</p>
+    @if(hasFriend===false){
+    <span>Vous n'avez pas d'ami 😓</span>
+    } @else {
+    <span>Vous avez des amis 😍</span>
+    }
+    <button class="btn btn-secondary" (click)="addFriend($event)" [disabled]="isDisabled">Ajouter un ami</button>
+</div>
+
+
+<!-- VERSION AVEC *ngIf-->
+
+<!-- <textarea class="textarea" placeholder="Ajouter un ami" [(ngModel)]="nameFriend"></textarea>
+<p>{{nameFriend}}</p>
+<span *ngIf="hasFriend===false; else elseBlock">Vous n'avez pas d'ami 😓</span>
+<ng-template #elseBlock>Vous avez des amis 😍</ng-template>
+<button class="btn btn-secondary" (click)="addFriend($event)" [disabled]="isDisabled">Ajouter un ami</button> -->
+
+<!-- VERSION SANS NG MODEL-->
+
+<!-- <textarea class="textarea" placeholder="Ajouter un ami" (keyup)="updatedField($event)"></textarea>
 <p>{{nameFriend}}</p>
 <span>{{hasFriend===false ? "Vous n'avez pas d'ami 😓" : "Vous avez des amis 😍" }}</span>
-<button class="btn btn-secondary" (click)="addFriend($event)" [disabled]="isDisabled">Ajouter un ami</button>
+<button class="btn btn-secondary" (click)="addFriend($event)" [disabled]="isDisabled">Ajouter un ami</button> -->
+
+<!-- VERSION AVEC NG MODEL-->
+
+<!-- <textarea class="textarea" placeholder="Ajouter un ami" [(ngModel)]="nameFriend"></textarea>
+<p>{{nameFriend}}</p>
+<span>{{hasFriend===false ? "Vous n'avez pas d'ami 😓" : "Vous avez des amis 😍" }}</span>
+<button class="btn btn-secondary" (click)="addFriend($event)" [disabled]="isDisabled">Ajouter un ami</button> -->
