@@ -1,9 +1,9 @@
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-button-display',
-  imports: [NgIf, NgFor, NgClass],
+  imports: [NgIf, NgFor, NgClass, NgStyle],
   templateUrl: './button-display.html',
   styleUrl: './button-display.css'
 })

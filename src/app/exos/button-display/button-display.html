@@ -3,4 +3,4 @@
 @if(isClicked===false){} @else {
 <p>button-display works!</p>
 }
-<p *ngFor="let item of countArray; index as i"  [ngClass]="i >= 5 ? 'blueBackground' : ''"> {{i}}</p>
+<p *ngFor="let item of countArray; index as i"  [ngClass]="i >= 5 ? 'blueBackground' : ''" [ngStyle]="{ 'color': i >= 5 ? 'salmon' : '' }"   > {{i}}</p>
