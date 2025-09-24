@@ -1,0 +1,48 @@
+<section>
+    <div class="card bg-base-100 image-full w-96 shadow-sm" *ngFor="let pokemon of newData; index as i">
+        <figure>
+            <img src="{{newData[i].sprites.shiny}}" alt="Shoes" />
+        </figure>
+        <div class="card-body">
+            <h2 class="card-title">{{newData[i].name.fr}}</h2>
+            <p>Catégorie : {{newData[i].category}}</p>
+            <p>Génération : {{newData[i].generation}}</p>
+            <p *ngFor="let type of newData[i].types; index as j">Type : {{newData[i].types[j].name}} </p>
+            <ul> Statistiques :
+                <li>Attaque : {{newData[i].stats.atk}}</li>
+                <li>Defense : {{newData[i].stats.def}}</li>
+                <li>Pts de vie : {{newData[i].stats.hp}}</li>
+                <li>Attaque spéciale : {{newData[i].stats.spe_atk}}</li>
+                <li>Defense spéciale : {{newData[i].stats.spe_def}}</li>
+            </ul>
+            <div class="card-actions justify-end">
+                <p *ngFor="let type of newData[i].talents; index as k">Type : {{newData[i].talents[k].name}} </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- <div class="card card-side bg-base-100 shadow-sm" *ngFor="let pokemon of newData; index as i" >
+  <figure>
+    <img
+      src="{{newData[i].sprites.shiny}}"
+      alt="Movie" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">{{newData[i].name.fr}}</h2>
+    <p>Catégorie : {{newData[i].category}}</p>
+    <p>Génération : {{newData[i].generation}}</p>
+    <p *ngFor="let type of newData[i].types; index as j">Type : {{newData[i].types[j].name}} </p>
+    <ul> Statistiques :
+        <li>Attaque : {{newData[i].stats.atk}}</li>
+        <li>Defense : {{newData[i].stats.def}}</li>
+        <li>Pts de vie : {{newData[i].stats.hp}}</li>
+        <li>Attaque spéciale : {{newData[i].stats.spe_atk}}</li>
+        <li>Defense spéciale : {{newData[i].stats.spe_def}}</li>
+    </ul>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">Watch</button>
+    </div>
+  </div>
+</div> -->

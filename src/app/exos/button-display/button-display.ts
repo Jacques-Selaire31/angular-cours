@@ -11,7 +11,6 @@ export class ButtonDisplay {
     isClicked:boolean = false;
     countArray:Array<number> = [];
     count:number = 0;
-    displayCount = 0;
     isClickedToggle(){
       this.isClicked = !this.isClicked;
       this.count++;

@@ -1,0 +1,9 @@
+section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card {
+    border: 4px double #ffffff;
+}

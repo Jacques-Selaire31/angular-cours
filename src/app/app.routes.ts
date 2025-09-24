@@ -4,6 +4,7 @@ import { About } from './about/about';
 import { Notfound } from './notfound/notfound';
 import { PropertyBiding } from './lessons/property-biding/property-biding';
 import { ButtonDisplay } from './exos/button-display/button-display';
+import { MeteoApi } from './meteo-api/meteo-api';
 export const routes: Routes = [
     {
         path: "home",
@@ -23,6 +24,15 @@ export const routes: Routes = [
     },
     {
         path: "tp", loadComponent: () => import('./exos/button-display/button-display').then(m => m.ButtonDisplay) // LAZY LOADING
+    },
+    {
+        path: "meteo", loadComponent: () => import('./meteo-api/meteo-api').then(m => m.MeteoApi) // LAZY LOADING
+    },
+    {
+        path: "poke", loadComponent: () => import('./exos/pokemon/pokemon').then(m => m.Pokemon) // LAZY LOADING
+    },
+    {
+        path: "parent", loadComponent: () => import('./lessons/parent/parent').then(m => m.Parent) // LAZY LOADING
     },
     {
         path:"**",

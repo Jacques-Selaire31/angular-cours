@@ -1,5 +1,5 @@
 import { NgClass, NgFor, NgStyle } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 interface Friend {
@@ -54,6 +54,7 @@ listFriend: Friend[] = [
       this.listFriend.push({img, name, statut, age, bio, reputation })
       console.log(this.listFriend);
   }
+  @Input() imgProps:string = "";
 }
 
 

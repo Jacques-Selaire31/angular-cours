@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { Footer } from './footer/footer';
 import { Navigation } from './navigation/navigation';
 import { ButtonDisplay } from "./exos/button-display/button-display";
+import { provideHttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Footer, Navigation, ButtonDisplay],
+  imports: [RouterOutlet, Footer, Navigation],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
