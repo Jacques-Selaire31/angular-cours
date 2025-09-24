@@ -1,0 +1,6 @@
+<button class="btn btn-accent" (click)="isClickedToggle()">{{isClicked===false ? "Affichier détails" : "Masquer
+    détails"}}</button>
+@if(isClicked===false){} @else {
+<p>button-display works!</p>
+}
+<p *ngFor="let item of countArray; index as i"  [ngClass]="i >= 5 ? 'blueBackground' : ''"> {{i}}</p>

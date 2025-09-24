@@ -3,6 +3,7 @@ import { Home } from './home/home';
 import { About } from './about/about';
 import { Notfound } from './notfound/notfound';
 import { PropertyBiding } from './lessons/property-biding/property-biding';
+import { ButtonDisplay } from './exos/button-display/button-display';
 export const routes: Routes = [
     {
         path: "home",
@@ -19,6 +20,9 @@ export const routes: Routes = [
     },
     {
         path: "event", loadComponent: () => import('./exos/event-biding/event-biding').then(m => m.EventBiding) // LAZY LOADING
+    },
+    {
+        path: "tp", loadComponent: () => import('./exos/button-display/button-display').then(m => m.ButtonDisplay) // LAZY LOADING
     },
     {
         path:"**",
