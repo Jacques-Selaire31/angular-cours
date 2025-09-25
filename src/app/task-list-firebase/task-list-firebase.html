@@ -1,0 +1,72 @@
+<!-- <div>
+    <label for="text">Liste des tâches : </label>
+    <textarea class="textarea" placeholder="Ajouter une tâche" [(ngModel)]="newTask.title"></textarea>
+</div>
+<button class="btn btn-primary btn-sm" (click)="addTask()">Ajouter</button> -->
+<h1><strong>🧐 Learning</strong></h1>
+<div id="task-list" class="container mt-5">
+    <ol class="list-group">
+        <li>On va créer un compte chez firebase (Un BAAS By Google) (https://firebase.google.com/)</li>
+        <li>On va créer un projet firebase dans la firebase console (https://console.firebase.google.com/)</li>
+        <li>Dans le dashboard du projet: on va connecter une app web</li>
+        <li>Dans le dashboard du projet: on va activer les products Authentication et RealTimeDatabase</li>
+        <li>Dans le dashboard du projet/paramètres: on va peut toujours récupérer la firebase config (secret)</li>
+        <li>Dans l'appli: suppr la dependance firebase (c trop lour ca charge tout les products du BAAS) on va installer
+            un wrapper angular fire (avec cette commande ng add @angular/fire) ca nous permet de choisir JUSTE les
+            products Auth et RealTimeDatabase et ca utilise votre package manager (npm ou pnpm ou yarn ou truc)</li>
+        <li>Dans L'appli: verif dans package.json ("@angular/fire": "20.0.1",)</li>
+        <li>Dans L'appli (créer un dossier environments avec un fichier environment.development.ts):
+            src/environments/environment.development.ts</li>
+        <li>Dans environment.development.ts : ca export une const environment dans laquelle il ya votre objet
+            firebaseConfig (on s'en sert juste après dans app.config.ts)</li>
+        <li>Dans app.config.ts (les imports): imports (environment from environment.development), (initializeApp,
+            provideFirebaseApp from '@angular/fire/app';) (provideAuth, getAuth from '@angular/fire/auth';)
+            (getDatabase, provideDatabase from '@angular/fire/database';)</li>
+        <li>Dans app.config.ts (les providers) on ajoute ca dans le tab:provideFirebaseApp(() =>
+            initializeApp(environment.firebaseConfig)),provideDatabase(() => getDatabase()),provideAuth(() =>
+            getAuth()),</li>
+        <li>On va créer un composant metier d'accès à 1 bdd NoSQL (la RTDB c'est full JSON): task-list-firebase (nom au
+            choix adapter filrouge ? au pire base de log ? )</li>
+        <li>Dans task-list-firebase.ts (1 varibale):newTask,un objet avec un title:'' et status:'pending';</li>
+        <li>Dans task-list-firebase.ts (1 method):addTask, </li>
+    </ol>
+    <h2>Liste des tâches</h2>
+    <form (ngSubmit)="handleAddTaskAndLog()" class="d-flex mb-3">
+        <input [(ngModel)]="newTask.title" name="task" type="text" placeholder="Nouvelle tâche"
+            class="form-control me-2" />
+        <button #task type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+    <h2>Ajouter une cible à la tâche</h2>
+    <form (ngSubmit)="handleAddCibleAndLog()" class="d-flex mb-3">
+        <div class="label">
+            <label for="messageInput" class="block font-medium mb-2">Nom de la cible :</label>
+            <input [(ngModel)]="newCible.name" name="cible" type="text" placeholder="Nouvelle cible"
+                class="form-control me-2" />
+        </div>
+        <div class="label">
+            <label for="messageInput" class="block font-medium mb-2">Photo de la cible :</label>
+            <input [(ngModel)]="newCible.img" name="cible" type="text" placeholder="Nouvelle cible"
+                class="form-control me-2" />
+        </div>
+        <div class="label">
+            <label for="messageInput" class="block font-medium mb-2">Age de la cible :</label>
+            <input [(ngModel)]="newCible.age" name="cible" type="text" placeholder="Nouvelle cible"
+                class="form-control me-2" />
+        </div>
+        <div class="label">
+            <label for="messageInput" class="block font-medium mb-2">Statut de la cible :</label>
+            <input [(ngModel)]="newCible.status" name="cible" type="text" placeholder="Nouvelle cible"
+                class="form-control me-2" />
+        </div>
+        <button #cible type="submit" class="btn btn-secondary">Ajouter</button>
+    </form>
+    <h3>Liste des tâches :</h3>
+    <ol class="list-group">
+        <li *ngFor="let task of tasks" class="list-group-item">{{ task.title }}, statut : {{task.status}}</li>
+    </ol>
+    <h3>Liste des cibles :</h3>
+    <ol class="list-group">
+        <li *ngFor="let cible of cibles" class="list-group-item"><img src="{{cible.img}}" alt="">{{ cible.name }}, age :
+            {{cible.age}}, statut : {{cible.status}}</li>
+    </ol>
+</div>

@@ -1,0 +1,7 @@
+<div class="label">
+    <label for="messageInput" class="block font-medium mb-2">Nom : </label>
+    <input [(ngModel)]="userName" name="cible" type="text" placeholder="Nom de l'utilisateur"
+        class="form-control me-2" />
+    <button (click)="addUser()" type="submit" class="btn btn-secondary">Ajouter</button>
+</div>
+<app-child [name]="userName" (changeStatus)="changeStatus(newStatus)"></app-child>
